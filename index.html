@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>긱사 탈출 넘버원</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel=preconnect>
+  <!-- 스타일시트 및 Firebase 스크립트 연결됨 -->
+</head>
+<body>
+  <div id="app">
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- 게임 플레이 상단 HUD (고도 표시) -->
+    <header class="game-header">
+      <div class="altitude-box">
+        <span>고도</span>
+        <span id="currentAltitude">0m</span>
+      </div>
+      <div class="ranking-box">
+        <div>기숙사 1위 <b id="topRanking">0m</b></div>
+      </div>
+    </header>
+
+    <!-- 시작 화면 및 메뉴 섹션 -->
+    <section class="start-screen">
+      <div class="logo-area">
+        <img alt="Google Gemini" src="img/gemini-logo.png">
+        <p>HUFS Dorm 총사생회 동쉼 × Team Gemini</p>
+        <h1>긱사 탈출 넘버원</h1>
+        <p>구름을 밟고 최대한 높이 올라가세요</p>
+      </div>
+
+      <!-- 로그인 / 이메일 인증 영역 -->
+      <div class="auth-section">
+        <div class="school-mail-notice">
+          <span>학교 메일 인증</span>
+          <span>@hufs.ac.kr만 가능 · 1인 1계정</span>
+        </div>
+        <!-- 랭킹 등록 및 캐릭터 선택 -->
+      </div>
+
+      <!-- 게임 설명 및 규칙 -->
+      <details>
+        <summary>게임 방법</summary>
+        <ul>
+          <li><b>점프</b>: 구름을 밟으면 자동으로 튀어 올라요. 아래로 떨어지면 게임 오버예요.</li>
+          <li><b>이동</b>: 화면 왼쪽·오른쪽을 누르고 있으면 그쪽으로 움직여요. (PC는 ← → 또는 A D 키)</li>
+          <li><b>구름 종류</b>: 하늘색 구름(좌우 이동), 회색 구름(부서짐), GEMINI 구름(높이 솟아오름)</li>
+          <li><b>아이템</b>: 반짝이(✨, 부스트), 아메리카노(☕, 점프력 증가)</li>
+          <li><b>F폭탄</b>: 300m부터 떨어지며 맞으면 아래로 튕겨 나감</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 게임 오버 화면 -->
+    <section class="game-over-screen" style="display:none;">
+      <div class="game-over-content">
+        <p>게임 오버</p>
+        <h2>기숙사로 강제 귀환</h2>
+        <div class="score-summary">
+          <div><span>이번 판</span><span id="finalScore">0m</span></div>
+          <div><span>내 최고 기록</span><span id="bestScore">0m</span></div>
+        </div>
+        <div class="auth-code-box">
+          <span>구글 폼 인증 코드</span>
+          <span id="authCode">#HUFS-0000</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
